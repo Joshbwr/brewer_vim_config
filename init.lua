@@ -2,6 +2,7 @@ require("config.keybinds")
 require("config.options")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -25,6 +26,4 @@ lazy.setup({
 		-- imports plugins from specified folder
 		{ import = "plugins" },
 	},
-
-	--install = { colorscheme = {"tokyonight", "catppuccin"} },
 })
