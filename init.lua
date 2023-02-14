@@ -22,8 +22,8 @@ if not ok then
 end
 
 lazy.setup({
-	spec = {
-		-- imports plugins from specified folder
-		{ import = "plugins" },
-	},
+spec = {
+-- imports plugins from specified folder
+{ import = "plugins" },
+},
 })

@@ -3,6 +3,10 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 
+		dependencies = {
+			"windwp/nvim-ts-autotag",
+		},
+
 		-- Config
 		opts = {
 			highlight = { enable = true },
@@ -26,6 +30,9 @@ return {
 			},
 			-- auto install above language parsers
 			auto_install = true,
+			autotag = {
+				enable = true,
+			},
 		},
 
 		config = function(_, opts)
