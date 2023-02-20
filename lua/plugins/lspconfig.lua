@@ -6,6 +6,15 @@ return {
 		end,
 	},
 	{
+		"jay-babu/mason-nvim-dap.nvim",
+		config = function()
+			require("mason-nvim-dap").setup({
+				automatic_setup = true,
+			})
+			require("mason-nvim-dap").setup_handlers()
+		end,
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
