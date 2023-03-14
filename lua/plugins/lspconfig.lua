@@ -59,7 +59,7 @@ return {
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-				vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
+				vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
 			end
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -80,7 +80,14 @@ return {
 			require("lspconfig")["tsserver"].setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
-				filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+				filetypes = {
+					"javascript",
+					"javascriptreact",
+					"javascript.jsx",
+					"typescript",
+					"typescriptreact",
+					"typescript.tsx",
+				},
 			})
 
 			require("lspconfig")["html"].setup({
