@@ -9,6 +9,7 @@ return {
 			"rafamadriz/friendly-snippets",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
+			"zbirenbaum/copilot-cmp",
 		},
 
 		config = function()
@@ -39,6 +40,7 @@ return {
 					{ name = "luasnip" }, -- snippets
 					{ name = "buffer" }, -- text within current buffer
 					{ name = "path" }, -- file system paths
+					{ { name = "copilot" }, { name = "emoji" } },
 				}),
 			})
 		end,
