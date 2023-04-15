@@ -24,6 +24,7 @@ return {
 					"html",
 					"cssls",
 					"lua_ls",
+					"gopls",
 				},
 			})
 		end,
@@ -37,6 +38,9 @@ return {
 					"prettierd",
 					"stylua",
 					"eslint_d",
+					"golangci-lint",
+					"gofumpt",
+					"goimports-reviser",
 				},
 			})
 		end,
@@ -105,6 +109,11 @@ return {
 				capabilities = capabilities,
 			})
 			require("lspconfig")["prismals"].setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+			})
+
+			require("lspconfig")["gopls"].setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
