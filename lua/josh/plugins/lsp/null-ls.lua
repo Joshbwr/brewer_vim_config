@@ -24,7 +24,7 @@ return {
         --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
         null_ls.builtins.formatting.gofumpt,
         null_ls.builtins.formatting.goimports_reviser,
-        null_ls.builtins.formatting.golines,
+        --        null_ls.builtins.formatting.golines,
         formatting.prettier.with({
           extra_filetypes = { "svelte" },
         }), -- js/ts formatter
