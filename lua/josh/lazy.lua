@@ -11,23 +11,26 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "josh.plugins" }, { import = "josh.plugins.lsp" } }, {
-  install = {
-    --colorscheme = { "nightfly" },
-    colorscheme = { "gruvbox-material", "rose-pine" }, -- try to load one of these colorschemes when installation
-  },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-  ui = {
-    border = "rounded",
-    size = {
-      width = 0.7,
-      height = 0.7,
+require("lazy").setup(
+  { { import = "josh.plugins" }, { import = "josh.plugins.lsp" }, { import = "josh.plugins.dap" } },
+  {
+    install = {
+      --colorscheme = { "nightfly" },
+      colorscheme = { "gruvbox-material", "rose-pine" }, -- try to load one of these colorschemes when installation
     },
-  },
-})
+    checker = {
+      enabled = true,
+      notify = false,
+    },
+    change_detection = {
+      notify = false,
+    },
+    ui = {
+      border = "rounded",
+      size = {
+        width = 0.7,
+        height = 0.7,
+      },
+    },
+  }
+)
