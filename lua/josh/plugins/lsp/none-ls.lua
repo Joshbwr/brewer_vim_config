@@ -1,11 +1,25 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
-  event = { "BufReadPre", "BufNewFile" },
+  "nvimtools/none-ls.nvim", -- configure formatters & linters
+  lazy = true,
+  -- event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
+  dependencies = {
+    "jay-babu/mason-null-ls.nvim",
+  },
   config = function()
-    -- import null-ls plugin
+    local mason_null_ls = require("mason-null-ls")
+
     local null_ls = require("null-ls")
 
     local null_ls_utils = require("null-ls.utils")
+
+    mason_null_ls.setup({
+      ensure_installed = {
+        "prettier", -- prettier formatter
+        "prettierd", -- prettier formatter
+        "stylua", -- lua formatter
+        "eslint_d", -- js linter
+      },
+    })
 
     -- for conciseness
     local formatting = null_ls.builtins.formatting -- to setup formatters
@@ -22,9 +36,6 @@ return {
       sources = {
         --  to disable file types use
         --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-        null_ls.builtins.formatting.gofumpt,
-        null_ls.builtins.formatting.goimports_reviser,
-        --        null_ls.builtins.formatting.golines,
         formatting.prettier.with({
           extra_filetypes = { "svelte" },
         }), -- js/ts formatter
