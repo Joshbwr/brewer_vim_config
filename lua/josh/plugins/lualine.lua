@@ -14,10 +14,10 @@ return {
       },
       sections = {
         lualine_x = {
-          { "fileformat" },
           { "filetype" },
         },
         lualine_c = { { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available } },
+        lualine_y = { { "filename", path = 1 } },
       },
     })
   end,
