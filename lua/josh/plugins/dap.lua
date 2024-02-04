@@ -12,7 +12,37 @@ return {
         { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
         { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
       },
-      opts = {},
+      opts = {
+        layouts = {
+          {
+            elements = {
+              {
+                id = "scopes",
+                size = 0.25,
+              },
+              {
+                id = "breakpoints",
+                size = 0.25,
+              },
+              {
+                id = "stacks",
+                size = 0.25,
+              },
+              {
+                id = "watches",
+                size = 0.25,
+              },
+            },
+            position = "left",
+            size = 40,
+          },
+        },
+        vim.fn.sign_define("DapBreakpoint", { text = "⬤", texthl = "DiagnosticSignError", linehl = "", numhl = "" }),
+        vim.fn.sign_define(
+          "DapStopped",
+          { text = "⏭", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
+        ),
+      },
       config = function(_, opts)
         -- setup dap config by VsCode launch.json file
         -- require("dap.ext.vscode").load_launchjs()

@@ -106,6 +106,14 @@ return {
       server = {
         capabilities = capabilities,
         on_attach = on_attach,
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "javascript.jsx",
+          "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+        },
       },
     })
 
@@ -123,6 +131,11 @@ return {
 
     -- configure prisma orm server
     lspconfig["prismals"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["yamlls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
