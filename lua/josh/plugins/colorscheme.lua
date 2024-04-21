@@ -1,43 +1,5 @@
-return {
-  -- {
-  --   "bluz71/vim-nightfly-guicolors",
-  --   priority = 1000, -- make sure to load this before all the other start plugins
-  --   config = function()
-  --     -- load the colorscheme here
-  --     vim.cmd([[colorscheme nightfly]])
-  --   end,
-  -- },
-  {
-    "rose-pine/neovim",
-    lazy = false,
-    name = "rose-pine",
-    opts = {
-      variant = "auto",
-      dark_variant = "moon",
-      disable_background = true,
-      disable_float_background = true,
-      disable_italics = true,
-      highlight_groups = {
-        FloatBorder = { fg = "subtle", bg = "none" },
-        TelescopeBorder = { fg = "subtle", bg = "none" },
-        TelescopeNormal = { fg = "none" },
-        TelescopePromptNormal = { bg = "none" },
-        TelescopeResultsNormal = { fg = "subtle", bg = "none" },
-        TelescopeSelection = { fg = "text", bg = "text", blend = 10 },
-        TelescopeSelectionCaret = { fg = "base", bg = "text" },
-        Cursor = { fg = "base", bg = "text" },
-        ColorColumn = { bg = "rose" },
-        CursorLine = { bg = "text", blend = 30 },
-        StatusLine = { fg = "love", bg = "love", blend = 10 },
-        StatusLineNC = { fg = "subtle", bg = "surface" },
-        GitSignsAdd = { fg = "iris", bg = "none" },
-        GitSignsChange = { fg = "foam", bg = "none" },
-        GitSignsDelete = { fg = "rose", bg = "none" },
-      },
-    },
-  },
 
-  {
+  return {
     "sainnhe/gruvbox-material",
     name = "gruvbox-material",
     lazy = false,
@@ -90,5 +52,4 @@ return {
         vim.api.nvim_set_hl(0, group, styles)
       end
     end,
-  },
-}
+  }

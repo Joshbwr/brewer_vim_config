@@ -2,7 +2,7 @@ return {
   "akinsho/bufferline.nvim",
   lazy = true,
   event = "VimEnter",
-  dependencies = { "famiu/bufdelete.nvim" },
+  dependencies = { "famiu/bufdelete.nvim", "nvim-tree/nvim-web-devicons" },
   opts = function()
     local bufferline = require("bufferline")
     local groups = require("bufferline.groups")
@@ -33,20 +33,6 @@ return {
 
     local colorscheme = vim.g.colors_name
     local palette = {}
-
-    if colorscheme == "rose-pine" then
-      local rp_palette = require("rose-pine.palette")
-
-      palette = {
-        text = rp_palette.text,
-        dim = rp_palette.subtle,
-        red = rp_palette.rose,
-        yellow = rp_palette.gold,
-        green = rp_palette.foam,
-        purple = rp_palette.iris,
-        blue = rp_palette.foam,
-      }
-    end
 
     if colorscheme == "gruvbox-material" then
       local configuration = vim.fn["gruvbox_material#get_configuration"]()

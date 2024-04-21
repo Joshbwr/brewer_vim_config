@@ -1,6 +1,6 @@
 return {
   "williamboman/mason.nvim",
-  dependencies = {
+    dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
@@ -35,7 +35,10 @@ return {
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "eslint_d", -- js linter
+        "isort", -- python formatter
+        "black", -- python formatter
+        "pylint", -- python linter
+        "eslint_d"
       },
     })
   end,

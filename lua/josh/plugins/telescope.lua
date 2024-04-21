@@ -3,26 +3,20 @@ return {
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    "nvim-telescope/telescope-ui-select.nvim",
+   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  "nvim-telescope/telescope-ui-select.nvim",
     "nvim-tree/nvim-web-devicons",
     "ThePrimeagen/harpoon",
+    "folke/todo-comments.nvim"
   },
   config = function()
-    -- import telescope plugin safely
     local telescope = require("telescope")
-
-    -- import telescope actions safely
     local actions = require("telescope.actions")
 
-    -- import telescope-ui-select safely
-    local themes = require("telescope.themes")
-
-    -- configure telescope
     telescope.setup({
       -- configure custom mappings
       defaults = {
-        path_display = { "truncate" },
+        path_display = { "smart" },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -33,12 +27,14 @@ return {
       },
       extensions = {
         ["ui-select"] = {
-          themes.get_dropdown({}),
+          require("telescope.themes").get_dropdown {
+            --opts
+          }
         },
       },
     })
 
-    telescope.load_extension("fzf")
+   telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
     telescope.load_extension("harpoon")
 
@@ -55,5 +51,7 @@ return {
     keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>", { desc = "Show git commits for current buffer" }) -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
     keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", { desc = "Show git branches" }) -- list git branches (use <cr> to checkout) ["gb" for git branch]
     keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Show current git changes per file" }) -- list current changes per file with diff preview ["gs" for git status]
+    keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find Todos" }) -- list todo comments 
+
   end,
 }
