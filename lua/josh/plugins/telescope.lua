@@ -16,7 +16,9 @@ return {
     telescope.setup({
       -- configure custom mappings
       defaults = {
-        path_display = { "smart" },
+        layout_config = {
+          vertical = {width = 0.5, height = 1},
+        },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -24,6 +26,11 @@ return {
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
           },
         },
+      },
+      pickers = {
+        find_files = {
+          theme = "dropdown"
+        }
       },
       extensions = {
         ["ui-select"] = {
